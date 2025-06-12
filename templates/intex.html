@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FORM</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    form {
+        background: #fff;
+        max-width: 400px;
+        margin: 40px auto;
+        padding: 30px 40px 20px 40px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    label {
+        display: block;
+        margin-bottom: 12px;
+        font-weight: bold;
+    }
+    input[type="text"] {
+        width: 100%;
+        padding: 7px 10px;
+        margin-top: 4px;
+        margin-bottom: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    input[type="submit"] {
+        background: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+    input[type="submit"]:hover {
+        background: #0056b3;
+    }
+    h2 {
+        text-align: center;
+        color: #333;
+        margin-top: 30px;
+    }
+</style>
+</head>
+<body>
+    <form action="/predict" method="post">
+        <label>CRIM: <input type="text" name="CRIM" required></label><br>
+        <label>ZN: <input type="text" name="ZN" required></label><br>
+        <label>INDUS: <input type="text" name="INDUS" required></label><br>
+        <label>CHAS: <input type="text" name="CHAS" required></label><br>
+        <label>NOX: <input type="text" name="NOX" required></label><br>
+        <label>RM: <input type="text" name="RM" required></label><br>
+        <label>AGE: <input type="text" name="AGE" required></label><br>
+        <label>DIS: <input type="text" name="DIS" required></label><br>
+        <label>RAD: <input type="text" name="RAD" required></label><br>
+        <label>TAX: <input type="text" name="TAX" required></label><br>
+        <label>PTRATIO: <input type="text" name="PTRATIO" required></label><br>
+        <label>B: <input type="text" name="B" required></label><br>
+        <label>LSTAT: <input type="text" name="LSTAT" required></label><br>
+        <input type="submit" value="Predict">
+    </form>
+    {% if prediction_text %}
+    <h2>{{ prediction_text }}</h2>
+    {% endif %}
+</body>
+</html>
